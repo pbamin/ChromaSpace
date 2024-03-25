@@ -1,0 +1,6 @@
+ipython
+numpy
+openai
+opencv_python
+Pillow
+streamlit
