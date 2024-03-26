@@ -7,7 +7,7 @@ from PIL import Image
 import streamlit as st
 from ChromaMethods import ChromaMethods as cm
 
-client = OpenAI(
+client = openai(
     api_key = st.secrets["OPEN_API_KEY"]
 )
 
