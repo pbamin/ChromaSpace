@@ -47,7 +47,7 @@ class ChromaMethods:
             }]
         ).choices[0].message.content
 
-        return colors,description
+        return colors,description, ["#ECF8F8","#EEE4E1","#E7D8C9","#E6BEAE"]
     
     def generate_color_block_image(colors, output_path):
         # Define the size of the color block image
