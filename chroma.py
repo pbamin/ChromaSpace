@@ -6,7 +6,7 @@ from PIL import Image
 import streamlit as st
 from ChromaMethods import ChromaMethods as cm
 
-client = openai(api_key=st.secrets["OPEN_API_KEY"])
+client = openai.Api(api_key=st.secrets["OPEN_API_KEY"])
 
 def main():
     # Custom title "ChromaSpace" with interesting font and color
