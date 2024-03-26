@@ -41,7 +41,7 @@ def main():
     if st.button("Generate Arrangement"):
         if room_image is not None:
             # Assuming you have the 'client' object for image generation
-            image_url = room_image(cm.arrange_ai(user_message, client, room_width, room_length, room_height))
+            image_url = cm.arrange_ai(user_message, client, room_image, room_width, room_length, room_height)
             st.image(image_url, caption="Generated Image")
         else:
             st.write("Please upload an image of the room.")
