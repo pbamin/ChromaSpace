@@ -7,7 +7,7 @@ openai.api_key = st.secrets["OPEN_API_KEY"]
 
 class ChromaMethods:
 
-    def palette_ai(msg):
+    def palette_ai(user_message):
         
         system_prompt = f"""
         You are an ai color generator,
@@ -31,7 +31,7 @@ class ChromaMethods:
             },
             {
                 "role":"user",
-                "content": f'{msg}'
+                "content": f'{user_message}'
             }],
             max_tokens=150,
             temperature=0.9
@@ -49,10 +49,10 @@ class ChromaMethods:
 
         return colors,description
     
-    def arrange_ai(msg,client):
+    def arrange_ai(user_message, client, room_image, room_width, room_length, room_height):
         arrange_response = client.images.generate(
             model="dall-e-2",
-            prompt=f"{msg} Photorealistic image of a well-furnished room that based on user's descrition and the room's uploaded image, height, width and length",
+            prompt=f"{user_message} Photorealistic image of a well-furnished room that based on user's descrition and the room's uploaded image, height, width and length",
             size="1024x1024",
             quality="standard",
             n=1,
