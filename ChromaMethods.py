@@ -56,7 +56,6 @@ class ChromaMethods:
             size="1024x1024",
             quality="standard",
             n=1,
-            room_image=room_image,
             room_width=room_width,
             room_length=room_length,
             room_height=room_height
