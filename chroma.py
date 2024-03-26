@@ -32,8 +32,8 @@ def main():
         output_path = "color_block_image.png"
         image_path = cm.generate_color_block_image(colors, output_path)
 
-    # Display the image using Streamlit
-    st.image(image_path, caption="Generated Color Block Image")
+        # Display the image using Streamlit
+        st.image(image_path, caption="Generated Color Block Image")
 
     # Input for uploading the room image
     room_image = st.file_uploader("Upload an image of your room", type=["jpg", "jpeg", "png"])
