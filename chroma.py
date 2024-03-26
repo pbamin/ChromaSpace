@@ -10,10 +10,10 @@ client = openai.OpenAI(api_key=st.secrets["OPEN_API_KEY"])
 
 def main():
     # Custom title "ChromaSpace" with interesting font and color
-    st.markdown("<h1 style='text-align: center; color: #FF5733; font-family: cursive;'>ChromaSpace</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center; color: #D4AF37; font-family: 'Segoe Script', cursive;'>ChromaSpace</h1>", unsafe_allow_html=True)
 
     # Slogan below the title
-    st.markdown("<h3 style='text-align: center; color: #3366FF;'>Unleash Your Design with ChromaSpace: Where Ideas Bloom into Beautiful Spaces</h3>", 
+    st.markdown("<h3 style='text-align: center; color: #4B0082; font-family: 'Palatino Linotype', serif;'>Unleash Your Design with ChromaSpace: Where Ideas Bloom into Beautiful Spaces</h3>", 
                 unsafe_allow_html=True)
 
     # Input for user message
