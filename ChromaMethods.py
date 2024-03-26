@@ -50,16 +50,20 @@ class ChromaMethods:
         return colors,description
     
     def arrange_ai(user_message, client, room_image, room_width, room_length, room_height):
+        prompt = f"{user_message} Photorealistic image of a well-furnished room that resembles the uploaded image (if provided)."
+        if room_width:
+            prompt += f" The room width is approximately {room_width:.2f} meters."
+        if room_length:
+            prompt += f" The room length is approximately {room_length:.2f} meters."
+        if room_height:
+            prompt += f" The room height is approximately {room_height:.2f} meters."
+
         arrange_response = client.images.generate(
-            model="dall-e-2",
-            prompt=f"{user_message} Photorealistic image of a well-furnished room that based on user's descrition and the room's uploaded image, height, width and length",
+            model="dall-e-3",
+            prompt=prompt,
             size="1024x1024",
             quality="standard",
-            n=1,
-            room_image=room_image,
-            room_width=room_width,
-            room_length=room_length,
-            room_height=room_height
+            n=1
         )
 
         image_url = arrange_response.data[0].url
