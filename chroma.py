@@ -26,6 +26,13 @@ def main():
         st.write("Description:")
         st.write(description)
     
+    hex_colors = st.text_input("Enter hex color codes (comma-separated)", "#FF0000,#00FF00")
+
+    if hex_colors:
+        colors = [color.strip() for color in hex_colors.split(",")]
+        image = cm.color_block(colors)
+        st.image(image)
+        
     # Input for uploading the room image
     room_image = st.file_uploader("Upload an image of your room", type=["jpg", "jpeg", "png"])
 

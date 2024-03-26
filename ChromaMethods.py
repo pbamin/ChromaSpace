@@ -49,6 +49,32 @@ class ChromaMethods:
 
         return colors,description
     
+    def color_block(hex_colors, size=(300, 300)):
+        """
+        Generates a color block image based on the provided hex color codes.
+        
+        Args:
+            hex_colors (list): A list of hex color codes (e.g., ["#FF0000", "#00FF00"])
+            size (tuple): The desired size of the image (default: (300, 300))
+        
+        Returns:
+            PIL.Image: The generated color block image
+        """
+        num_colors = len(hex_colors)
+        block_width = size[0] // num_colors
+        block_height = size[1]
+        
+        image = Image.new("RGB", size)
+        draw = ImageDraw.Draw(image)
+        
+        for i, color in enumerate(hex_colors):
+            draw.rectangle(
+                (i * block_width, 0, (i + 1) * block_width, block_height),
+                fill=color
+            )
+        
+        return image
+
     def arrange_ai(user_message, client, room_width, room_length, room_height):
         prompt = f"{user_message} Photorealistic image of a well-furnished room that resembles the uploaded image (if provided)."
         if room_width:
