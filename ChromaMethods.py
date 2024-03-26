@@ -1,6 +1,8 @@
 import openai
 import streamlit as st
 
+openai.api_key = api_key
+
 class ChromaMethods:
 
     system_prompt = f"""
