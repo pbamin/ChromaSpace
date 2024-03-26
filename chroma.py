@@ -21,9 +21,9 @@ def main():
 
     if st.button("Generate Color Palette", key="generate_color_palette_button"):
         if st.button("Generate Color Palette"):
+            colors, description = cm.palette_ai(user_message)
             color_block="".join(f'<span style="color:{color}">██</span>' for color in colors) 
             st.markdown(f"**{description}**<br/>{color_block}")
-            colors, description = cm.palette_ai(user_message)
         st.write("Generated Color Palette:")
         st.write(colors)
         st.write("Description:")
