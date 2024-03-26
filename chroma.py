@@ -26,7 +26,10 @@ def main():
         st.write("Description:")
         st.write(description)
     
-    hex_colors = colors
+        image = cm.color_block(colors)
+        st.image(image, caption="Color Block Image", use_column_width=True)
+
+    hex_colors = st.text_input("Enter hex color codes (comma-separated)", "#FF0000,#00FF00")
 
     if hex_colors:
         colors = [color.strip() for color in hex_colors.split(",")]
