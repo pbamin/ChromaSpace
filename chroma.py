@@ -20,7 +20,8 @@ def main():
     user_message = st.text_input("Enter your theme/description:")
 
     if st.button("Generate Color Palette"):
-        colors, description = cm.palette_ai(msg=user_message,colors,description)
+        color_block = cm.palette_ai(color_block)
+        colors, description = cm.palette_ai(msg=user_message)
         st.write("Generated Color Palette:")
         st.write(colors)
         st.write("Description:")
