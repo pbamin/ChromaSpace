@@ -26,7 +26,7 @@ def main():
         st.write("Description:")
         st.write(description)
     
-        colors = ["#ECF8F8", "#EEE4E1", "#E7D8C9", "#E6BEAE"]
+    colors = ["#ECF8F8", "#EEE4E1", "#E7D8C9", "#E6BEAE"]
 
         # Generate the color block image
     if st.checkbox("Generate Color Block Image"):
