@@ -2,7 +2,7 @@ import os
 import openai
 import json
 from IPython.display import Markdown
-from PIL import Image
+from PIL import Image, ImageDraw
 import streamlit as st
 from ChromaMethods import ChromaMethods as cm
 
@@ -25,6 +25,29 @@ def main():
         st.write(colors)
         st.write("Description:")
         st.write(description)
+    
+    colors = ["#ECF8F8", "#EEE4E1", "#E7D8C9", "#E6BEAE"]
+
+    # Define the size of the color block image
+    block_size = 100
+    image_width = block_size * len(colors)
+    image_height = block_size
+
+    # Create a new image with the specified size
+    image = Image.new("RGB", (image_width, image_height), "white")
+    draw = ImageDraw.Draw(image)
+
+    # Draw rectangles for each color in the color block image
+    for i, color in enumerate(colors):
+        draw.rectangle([i * block_size, 0, (i + 1) * block_size, block_size], fill=color)
+
+    # Save the image
+    image.save("color_block_image.png")
+
+    # Display the image using Streamlit
+    import streamlit as st
+
+    st.image("color_block_image.png", caption="Generated Color Block Image")
     
     # Input for uploading the room image
     room_image = st.file_uploader("Upload an image of your room", type=["jpg", "jpeg", "png"])
