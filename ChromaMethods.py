@@ -1,3 +1,5 @@
+import streamlit as st
+
 class ChromaMethods:
 
     system_prompt = f"""
@@ -9,14 +11,14 @@ class ChromaMethods:
 
     def color_block(colors,description):
         color_block="".join(f'<span style="color:{color}">{chr(9608)*4}</span>'for color in colors)
-        display(Markdown(f"**{description}**<br/>{color_block}"))
+        st.markdown(f"**{description}**<br/>{color_block}")
 
-    def palette_ai(msg):
+    def palette_ai(self,msg,):
         chroma_response = openai.chat.completions.create(
             model ='gpt-3.5-turbo',
             messages=[{
                 "role":"system",
-                "content": system_prompt
+                "content": self.system_prompt
             },
             {
                 "role":"user",
@@ -48,12 +50,18 @@ class ChromaMethods:
 
         return color_block,colors,description
     
-    def generate_text_prompt(self, room_image, height=None, width=None, length=None, desired_furniture=""):
-        prompt = "Photorealistic image of a well-furnished room that resembles the one in the attached image. "
-        if room_image is not None:
-            prompt += f"The room dimensions are approximately {height:.2f} meters high, {width:.2f} meters wide, and {length:.2f} meters long (if provided). "
-        prompt += f"The furniture arrangement is optimized for {desired_furniture} activities."
-        return prompt
-    
-    text_prompt = generate_text_prompt(room_image, height, width, length)
-    print(f"Generated text prompt:\n{text_prompt}")
+    def arrange_ai(msg,client):
+        arrange_response = client.images.generate(
+            model="dall-e-2",
+            prompt=f"{msg} Photorealistic image of a well-furnished room that based on user's descrition and the room's uploaded image, height, width and length",
+            size="1024x1024",
+            quality="standard",
+            n=1,
+            room_image=room_image,
+            room_width=room_width,
+            room_length=room_length,
+            room_height=room_height
+        )
+
+        image_url = arrange_response.data[0].url
+        return image_url
