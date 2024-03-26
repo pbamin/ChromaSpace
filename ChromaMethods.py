@@ -6,11 +6,10 @@ openai.api_key = st.secrets["OPEN_API_KEY"]
 
 class ChromaMethods:
 
-    def color_block(colors,description):
+    def palette_ai(msg,colors,description):
         color_block="".join(f'<span style="color:{color}">{chr(9608)*4}</span>'for color in colors)
         st.markdown(f"**{description}**<br/>{color_block}")
 
-    def palette_ai(msg):
         system_prompt = f"""
         You are an ai color generator,
         based on the user's description,
