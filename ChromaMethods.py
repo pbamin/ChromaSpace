@@ -1,6 +1,7 @@
 import openai
 import streamlit as st
 import json
+from PIL import Image, ImageDraw
 
 openai.api_key = st.secrets["OPEN_API_KEY"]
 
