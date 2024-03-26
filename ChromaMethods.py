@@ -49,7 +49,7 @@ class ChromaMethods:
 
         return colors,description
     
-    def arrange_ai(user_message, client, room_image, room_width, room_length, room_height):
+    def arrange_ai(user_message, client, room_width, room_length, room_height):
         prompt = f"{user_message} Photorealistic image of a well-furnished room that resembles the uploaded image (if provided)."
         if room_width:
             prompt += f" The room width is approximately {room_width:.2f} meters."
