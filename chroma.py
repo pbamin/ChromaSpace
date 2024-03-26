@@ -2,7 +2,6 @@ import os
 import openai
 import json
 from IPython.display import Markdown
-import cv2
 from PIL import Image
 import streamlit as st
 from ChromaMethods import ChromaMethods as cm
