@@ -26,7 +26,7 @@ def main():
         st.write("Description:")
         st.write(description)
     
-    hex_colors = st.text_input("Enter hex color codes (comma-separated)", "#FF0000,#00FF00")
+    hex_colors = colors
 
     if hex_colors:
         colors = [color.strip() for color in hex_colors.split(",")]
