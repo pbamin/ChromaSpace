@@ -10,10 +10,10 @@ client = openai.OpenAI(api_key=st.secrets["OPEN_API_KEY"])
 
 def main():
     # Custom title "ChromaSpace" with interesting font and color
-    st.markdown("<h1 style='text-align: center; color: #D4AF37; font-family: 'Segoe Script', cursive;'>ChromaSpace</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center; color: #D4AF37; font-family: 'Pacifico', cursive;'>ChromaSpace</h1>", unsafe_allow_html=True)
 
     # Slogan below the title
-    st.markdown("<h3 style='text-align: center; color: #4B0082; font-family: 'Palatino Linotype', serif;'>Unleash Your Design with ChromaSpace: Where Ideas Bloom into Beautiful Spaces</h3>", 
+    st.markdown("<h3 style='text-align: center; color: #FFFFFF; font-family: 'Bitter', serif;'>Unleash Your Design with ChromaSpace: Where Ideas Bloom into Beautiful Spaces</h3>", 
                 unsafe_allow_html=True)
 
     # Input for user message
@@ -29,9 +29,6 @@ def main():
         image = cm.color_block(colors)
         st.image(image, caption="Color Block Image", use_column_width=True)
 
-    # Input for uploading the room image
-    room_image = st.file_uploader("Upload an image of your room", type=["jpg", "jpeg", "png"])
-
     # Input for room dimensions
     room_dimensions_provided = st.radio("Do you have the room's height, width, and length?", ('Yes', 'No')) == 'Yes'
     if room_dimensions_provided:
@@ -42,9 +39,6 @@ def main():
         room_length,room_width,room_height = None, None, None
     
     if st.button("Generate Arrangement"):
-        if room_image is not None:
-        # Inform the user that the image is considered in the prompt
-            st.write("The uploaded image will be considered in the generation process.")
         image_url = cm.arrange_ai(user_message, client, room_width, room_length, room_height)
         st.image(image_url, caption="Generated Image")
 
