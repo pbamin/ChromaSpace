@@ -26,17 +26,6 @@ def main():
         st.write("Description:")
         st.write(description)
     
-    colors = ["#ECF8F8", "#EEE4E1", "#E7D8C9", "#E6BEAE"]
-
-        # Generate the color block image
-    if st.checkbox("Generate Color Block Image"):
-        output_path = "color_block_image.png"
-        image_path = cm.generate_color_block_image(colors, output_path)
-
-            # Display the image using Streamlit
-        if image_path:
-            st.image(image_path, caption="Generated Color Block Image")
-
     # Input for uploading the room image
     room_image = st.file_uploader("Upload an image of your room", type=["jpg", "jpeg", "png"])
 
