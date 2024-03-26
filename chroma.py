@@ -32,9 +32,9 @@ def main():
     # Input for room dimensions
     room_dimensions_provided = st.radio("Do you have the room's height, width, and length?", ('Yes', 'No')) == 'Yes'
     if room_dimensions_provided:
-        room_height = st.number_input("Enter room height (meters)", value=0.0, step=0.1)
-        room_width = st.number_input("Enter room width (meters)", value=0.0, step=0.1)
-        room_length = st.number_input("Enter room length (meters)", value=0.0, step=0.1)
+        room_height = st.slider("Room Height (meters)", min_value=0.0, max_value=10.0, value=0.0, step=0.1)
+        room_width = st.slider("Room Width (meters)", min_value=0.0, max_value=10.0, value=0.0, step=0.1)
+        room_length = st.slider("Room Length (meters)", min_value=0.0, max_value=10.0, value=0.0, step=0.1)
     else:
         room_length,room_width,room_height = None, None, None
     
