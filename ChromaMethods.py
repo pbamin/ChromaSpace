@@ -48,6 +48,25 @@ class ChromaMethods:
 
         return colors,description
     
+    def generate_color_block_image(colors, output_path):
+        # Define the size of the color block image
+        block_size = 100
+        image_width = block_size * len(colors)
+        image_height = block_size
+
+        # Create a new image with the specified size
+        image = Image.new("RGB", (image_width, image_height), "white")
+        draw = ImageDraw.Draw(image)
+
+        # Draw rectangles for each color in the color block image
+        for i, color in enumerate(colors):
+            draw.rectangle([i * block_size, 0, (i + 1) * block_size, block_size], fill=color)
+
+        # Save the image
+        image.save(output_path)
+
+        return output_path
+    
     def arrange_ai(msg,client):
         arrange_response = client.images.generate(
             model="dall-e-2",
