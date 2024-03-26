@@ -6,8 +6,6 @@ openai.api_key = st.secrets["OPEN_API_KEY"]
 
 class ChromaMethods:
 
-    
-
     def color_block(colors,description):
         color_block="".join(f'<span style="color:{color}">{chr(9608)*4}</span>'for color in colors)
         st.markdown(f"**{description}**<br/>{color_block}")
