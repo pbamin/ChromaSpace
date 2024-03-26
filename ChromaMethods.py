@@ -46,9 +46,7 @@ class ChromaMethods:
             }]
         ).choices[0].message.content
 
-        color_block="".join(f'<span style="color:{color}">██</span>' for color in colors)
-
-        return color_block, colors,description
+        return colors,description
     
     def arrange_ai(msg,client):
         arrange_response = client.images.generate(
