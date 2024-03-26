@@ -6,7 +6,7 @@ openai.api_key = st.secrets["OPEN_API_KEY"]
 
 class ChromaMethods:
 
-    def palette_ai(msg,color_block):
+    def palette_ai(msg):
         color_block="".join(f'<span style="color:{color}">{chr(9608)*4}</span>'for color in colors)
         st.markdown(f"**{description}**<br/>{color_block}")
 
@@ -47,8 +47,6 @@ class ChromaMethods:
                 "content": "Please describe the following color palette relates to interior design in one sentence: {}".format(colors)
             }]
         ).choices[0].message.content
-    
-        color_block(colors,description)
 
         return color_block,colors,description
     
