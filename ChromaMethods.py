@@ -13,12 +13,12 @@ class ChromaMethods:
         color_block="".join(f'<span style="color:{color}">{chr(9608)*4}</span>'for color in colors)
         st.markdown(f"**{description}**<br/>{color_block}")
 
-    def palette_ai(self,msg,):
+    def palette_ai(msg):
         chroma_response = openai.chat.completions.create(
             model ='gpt-3.5-turbo',
             messages=[{
                 "role":"system",
-                "content": self.system_prompt
+                "content": system_prompt
             },
             {
                 "role":"user",
