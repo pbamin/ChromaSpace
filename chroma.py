@@ -21,6 +21,7 @@ def main():
 
     if st.button("Generate Color Palette"):
         colors, description = cm.palette_ai(msg=user_message)
+        color_block(colors, description)
         st.write("Generated Color Palette:")
         st.write(colors)
         st.write("Description:")
